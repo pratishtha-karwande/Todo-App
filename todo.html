@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do Application</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script  src="script.js"></script>
 
     <div class="container">
-        <div class="box">
-            <div class="todo-app">
-                <div class="title">
-                    <h2>To-Do App</h2>
-                    <img class="logo" src="img/logo.png">
-                </div>
-                <div class="row">
-                    <input type="text" id="input-box" placeholder="Add Your Text">
-                    <button onclick="addTask()">Add Text</button>
-                </div>
-    
-                <ul id="list-container" class="scroll">
-                    <!-- <li class="checked">Task 1</li>
-                    <li>Task 1</li>
-                    <li>Task 1</li> -->
-                </ul>
-            </div>
+        <!-- Inside the container will add an input field for adding tasks, a list to display the tasks, and buttons for adding and removing tasks.-->
+        
+
+        <div class="todo-header">
+            <h2>ToDo List</h2>
+            <img src="/img.jpg" height="50px" />
+       </div>
+
+       <div class="todo-body">
+        <input
+            type="text"
+            id="todoText"
+            class="todo-input"
+            placeholder="Add your items"
+        />
+        <img
+            src="/images/plus.png"
+            alt="+"
+            id="AddUpdateClick"
+            onclick="CreateToDoItems();"
+        />
         </div>
-
-
-
     </div>
 
-    <script src="todo.js"></script>
-</body>
+    <h5 id="Alert"></h5>
+<ul id="list-items" class="list-items"></ul>
+  </body>
+  </html>
