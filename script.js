@@ -1,7 +1,8 @@
-const todoValue = document.getElementById("todoText");
-const todoAlert = document.getElementById("Alert");
-const listItems = document.getElementById("list-items");
-const addUpdate = document.getElementById("AddUpdateClick");
+
+var todoAlert = document.getElementById("Alert");
+var addUpdate = document.getElementById("AddUpdateClick");
+var todoValue = document.getElementById("todoText");
+var listItems = document.getElementById("list-items");
 
 let todo = JSON.parse(localStorage.getItem("todo-list"));
 if (!todo) {
@@ -9,9 +10,11 @@ if (!todo) {
 }
 
 function CreateToDoItems() {
+  console.log(todoValue)
     if (todoValue.value === "") {
       todoAlert.innerText = "Please enter your todo text!";
       todoValue.focus();
+
     } else {
       let IsPresent = false;
       todo.forEach((element) => {
@@ -27,8 +30,8 @@ function CreateToDoItems() {
   
       let li = document.createElement("li");
       const todoItems = `<div title="Hit Double Click and Complete" ondblclick="CompletedToDoItems(this)">${todoValue.value}</div><div>
-                      <img class="edit todo-controls" onclick="UpdateToDoItems(this)" src="/images/pencil.png" />
-                      <img class="delete todo-controls" onclick="DeleteToDoItems(this)" src="/images/delete.png" /></div></div>`;
+                      <button class="edit todo-controls" onclick="UpdateToDoItems(this)">Edit</button>
+                      <button class="delete todo-controls" onclick="DeleteToDoItems(this)">Delete</button></div></div>`;
       li.innerHTML = todoItems;
       listItems.appendChild(li);
   
@@ -61,10 +64,10 @@ function CreateToDoItems() {
       }</div><div>
       ${
         style === ""
-          ? '<img class="edit todo-controls" onclick="UpdateToDoItems(this)" src="/images/pencil.png" />'
+          ? '<button class="edit todo-controls" onclick="UpdateToDoItems(this)">Edit</button>'
           : ""
       }
-      <img class="delete todo-controls" onclick="DeleteToDoItems(this)" src="/images/delete.png" /></div></div>`;
+      <button class="delete todo-controls" onclick="DeleteToDoItems(this)">Delete</button></div></div>`;
     li.innerHTML = todoItems;
     listItems.appendChild(li);
   });
@@ -72,6 +75,8 @@ function CreateToDoItems() {
 ReadToDoItems();
 
 function UpdateToDoItems(e) {
+  var todoValue = document.getElementById("todoText");
+
     if (
       e.parentElement.parentElement.querySelector("div").style.textDecoration ===
       ""

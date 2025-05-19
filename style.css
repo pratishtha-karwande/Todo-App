@@ -7,18 +7,18 @@
 }
 body {
     background: #78c1f3;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
+  button {
+    padding: 15px;
+  }
    
 .container {
     background: #ffffff;
     padding: 25px;
     width: 550px;
     border-radius: 10px;
+    margin: 15px;
   }
   .todo-header {
     display: flex;
@@ -74,12 +74,12 @@ body {
     color: green;
   }
   
-  .todo-controls {
+  /* .todo-controls {
     width: 25px;
     height: 25px;
     padding: 3px;
     margin-right: 5px;
-  }
+  } */
 
   li {
     opacity: 0;
